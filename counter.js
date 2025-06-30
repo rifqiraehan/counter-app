@@ -1,11 +1,27 @@
-const STORAGE_KEY = 'counter-value';
+const VALUE_KEY = 'counter-value';
+const HISTORY_KEY = 'counter-history';
 
 export function getCount() {
-  return parseInt(localStorage.getItem(STORAGE_KEY)) || 0;
+  return parseInt(localStorage.getItem(VALUE_KEY)) || 0;
+}
+
+export function getHistory() {
+  const history = JSON.parse(localStorage.getItem(HISTORY_KEY)) || [];
+  return history;
 }
 
 export function setCount(value) {
-  localStorage.setItem(STORAGE_KEY, value);
+  localStorage.setItem(VALUE_KEY, value);
+  updateHistory(value);
+}
+
+function updateHistory(value) {
+  let history = getHistory();
+  history.push(value);
+  if (history.length > 100) {
+    history = history.slice(-100);
+  }
+  localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
 }
 
 export function increment() {
@@ -20,4 +36,5 @@ export function decrement() {
 
 export function reset() {
   setCount(0);
+  localStorage.setItem(HISTORY_KEY, JSON.stringify([0]));
 }

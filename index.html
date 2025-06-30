@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Counter App</title>
-  <link rel="stylesheet" href="style.css" />
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Counter App</title>
+  <link rel="stylesheet" href="style.css?v=2" />
 </head>
+
 <body>
+  <div style="width: 100%; max-width: 500px; margin: auto;">
+    <canvas id="counterChart"></canvas>
+  </div>
   <main>
     <h1>Counter: <span id="count">0</span></h1>
     <button id="increment">+ Tambah</button>
@@ -14,6 +19,8 @@
     <button id="reset">Reset</button>
   </main>
 
-  <script type="module" src="./main.js?v=2"></script>
+  <script type="module" src="./main.js?v=3"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
+
 </html>
