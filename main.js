@@ -1,7 +1,8 @@
-import { getCount, increment, reset } from './counter.js';
+import { getCount, increment, decrement, reset } from './counter.js';
 
 const countSpan = document.getElementById('count');
 const incrementBtn = document.getElementById('increment');
+const decrementBtn = document.getElementById('decrement');
 const resetBtn = document.getElementById('reset');
 
 function updateUI() {
@@ -10,6 +11,11 @@ function updateUI() {
 
 incrementBtn.addEventListener('click', () => {
   increment();
+  updateUI();
+});
+
+decrementBtn.addEventListener('click', () => {
+  decrement();
   updateUI();
 });
 

@@ -13,6 +13,11 @@ export function increment() {
   setCount(current + 1);
 }
 
+export function decrement() {
+  const current = getCount();
+  setCount(current - 1);
+}
+
 export function reset() {
   setCount(0);
 }
